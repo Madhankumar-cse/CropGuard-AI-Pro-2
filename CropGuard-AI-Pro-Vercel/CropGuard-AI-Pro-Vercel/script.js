@@ -1,0 +1,1 @@
+async function predict(){const f=document.getElementById('imageInput').files[0];if(!f){alert('Upload a leaf image');return;}const fd=new FormData();fd.append('file',f);const r=await fetch('/api/predict',{method:'POST',body:fd});const d=await r.json();document.getElementById('result').innerHTML=`<h2>${d.crop}</h2><p>${d.disease}</p><p>${d.confidence}</p><p>${d.treatment}</p>`;}
